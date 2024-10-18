@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
+            position: relative;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        input[type="password"] {
+            padding: 14px;
+            width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        input[type="password"]:focus {
+            border-color: #5b86e5;
+            outline: none;
+            background-color: #f0f4fc;
+        }
+
+        button {
+            background: linear-gradient(135deg, #5b86e5, #36d1dc);
+            color: white;
+            padding: 14px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s;
+
+        }
+
+        .btn-set {
+            display: flex;
+            justify-content: center;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #3b5998, #3498db);
+            transform: scale(1.02);
+        }
+
+        p {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        a {
+            color: #5b86e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            input,
+            button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+
+        /* Animation for container */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating background decoration */
+        .background-bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: bubbleMove 10s infinite ease-in-out;
+        }
+
+        .bubble-1 {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6f91;
+            top: 10%;
+            left: 20%;
+        }
+
+        .bubble-2 {
+            width: 60px;
+            height: 60px;
+            background-color: #ffe156;
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .bubble-3 {
+            width: 80px;
+            height: 80px;
+            background-color: #28c3c9;
+            top: 50%;
+            right: 30%;
+        }
+
+        /* Bubble movement animation */
+        @keyframes bubbleMove {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-40px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Reset Password</h2>
+        <form action="/resetPassword/<%= id %>" method="POST">
+            <div>
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password" required>
+            </div>
+            <div>
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password"
+                    required>
+            </div>
+            <div class="btn-set">
+                <button type="submit">Update Password</button>
+            </div>
+        </form>
+        <p>Back to <a href="/logInForm">Login</a></p>
+    </div>
+    <div class="background-bubble bubble-1"></div>
+    <div class="background-bubble bubble-2"></div>
+    <div class="background-bubble bubble-3"></div>
+</body>
+
+</html>

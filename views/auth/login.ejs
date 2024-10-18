@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles */
+        body {
+            background-image: linear-gradient(to right, #6c63ff, #42a5f5);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .container h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-align: center;
+            color: #333;
+            position: relative;
+        }
+
+        .container h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #6c63ff;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .input-group-text {
+            background-color: #f0f4f8;
+            border-right: 0;
+        }
+
+        .form-control {
+            border-left: 0;
+            box-shadow: none !important;
+        }
+
+        .btn-primary {
+            background-color: #6c63ff;
+            border-color: #6c63ff;
+            font-size: 16px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #5348c7;
+        }
+
+        .forgot-link,
+        .signup-link {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .forgot-link a,
+        .signup-link a {
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .forgot-link a:hover,
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error message */
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+
+        /* Animation for container */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating background decoration */
+        .background-bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: bubbleMove 10s infinite ease-in-out;
+        }
+
+        .bubble-1 {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6f91;
+            top: 10%;
+            left: 20%;
+        }
+
+        .bubble-2 {
+            width: 60px;
+            height: 60px;
+            background-color: #ffe156;
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .bubble-3 {
+            width: 80px;
+            height: 80px;
+            background-color: #28c3c9;
+            top: 50%;
+            right: 30%;
+        }
+
+        /* Bubble movement animation */
+        @keyframes bubbleMove {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-40px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email"
+                    required>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" id="password" name="password" class="form-control"
+                    placeholder="Enter your password" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </div>
+            <% if (error) { %>
+                <p class="error-message">
+                    <%= error %>
+                </p>
+                <% } %>
+        </form>
+
+        <div class="forgot-link">
+            <p><a href="/forgotPassForm">Forgot Password?</a></p>
+        </div>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="/signUpForm">Sign Up</a></p>
+        </div>
+
+        <div class="background-bubble bubble-1"></div>
+        <div class="background-bubble bubble-2"></div>
+        <div class="background-bubble bubble-3"></div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

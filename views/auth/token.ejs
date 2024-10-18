@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Already Reset</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #5348c7;
+            transform: translateY(-2px);
+        }
+
+        .icon {
+            font-size: 50px;
+            color: #6c63ff;
+            margin-bottom: 20px;
+        }
+
+        /* Floating bubbles for background decoration */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c63ff, #c084fc);
+            opacity: 0.5;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .bubble-1 {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 20%;
+        }
+
+        .bubble-2 {
+            width: 100px;
+            height: 100px;
+            bottom: 15%;
+            right: 10%;
+        }
+
+        .bubble-3 {
+            width: 80px;
+            height: 80px;
+            top: 50%;
+            right: 30%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .icon {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="icon">🔐</div>
+        <h2>Password Already Reset</h2>
+        <p>Your password has already been successfully reset. If you remember doing this, you can now login with your new password.</p>
+        <a href="/logInForm" class="btn">Go to Login</a>
+    </div>
+
+    <!-- Floating Bubbles for Background Decoration -->
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+</body>
+
+</html>

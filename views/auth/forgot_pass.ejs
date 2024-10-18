@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #36d1dc, #6c63ff);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.8s ease-out;
+            position: relative;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="email"] {
+            padding: 15px;
+            width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            border-color: #6c63ff;
+            outline: none;
+            background-color: #f3f4f8;
+        }
+
+        button {
+            background: linear-gradient(135deg, #6c63ff, #36d1dc);
+            color: white;
+            padding: 14px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #5348c7, #28c3c9);
+            transform: scale(1.02);
+        }
+
+        p {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        a {
+            color: #6c63ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating background decoration */
+        .background-bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: bubbleMove 10s infinite ease-in-out;
+        }
+
+        .bubble-1 {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6f91;
+            top: 10%;
+            left: 20%;
+        }
+
+        .bubble-2 {
+            width: 60px;
+            height: 60px;
+            background-color: #ffe156;
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .bubble-3 {
+            width: 80px;
+            height: 80px;
+            background-color: #28c3c9;
+            top: 50%;
+            right: 30%;
+        }
+
+        /* Bubble movement animation */
+        @keyframes bubbleMove {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            input, button {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Forgot Password</h2>
+        <form action="/verifyEmail" method="POST">
+            <div>
+                <label for="email">Enter your email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div>
+                <button type="submit">Send OTP</button>
+                <!-- <button type="submit">Send link</button> -->
+            </div>
+        </form>
+        <p>Remembered your password? <a href="/logInForm">Login</a></p>
+    </div>
+
+    <!-- Floating Bubbles for Background Decoration -->
+    <div class="background-bubble bubble-1"></div>
+    <div class="background-bubble bubble-2"></div>
+    <div class="background-bubble bubble-3"></div>
+</body>
+</html>
